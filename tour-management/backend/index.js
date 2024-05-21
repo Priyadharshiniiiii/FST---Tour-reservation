@@ -6,10 +6,16 @@ import cookieParser from 'cookie-parser'
 import tourRoute from './routers/tours.js';
 import userRoute from './routers/users.js';
 import authRoute from './routers/auth.js';
+import reviewRoute from "./routers/reviews.js";
+import bookingRoute from "./routers/bookings.js";
 
 dotenv.config();
 const app = express();
 const port = 4000;
+const corsOptions = {
+    origin: true,
+    credentials:true
+}
 
 mongoose.set("strictQuery", false);
 const connect = async() => {
@@ -26,11 +32,13 @@ app.get("/", (req,res) => {
 });
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser());
-app.use("/auth", authRoute);
-app.use("/tours", tourRoute);
-app.use("/users", userRoute);
+app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/tours", tourRoute);
+app.use("/api/v1/users", userRoute);
+app.use("/api/v1/review", reviewRoute);
+app.use("/api/v1/booking", bookingRoute);
 
 app.listen(port, ()=> {
     connect();
