@@ -1,17 +1,22 @@
-import React,{useState} from "react";
+import React,{useState, useContext} from "react";
 import "./booking.css";
 import { Form, FormGroup, ListGroup, ListGroupItem, Button } from "reactstrap"; 
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import { BASE_URL } from "../../utils/config";
 
 const Booking = ({ tour,avgRating }) => {
 
-    const {price, reviews} = tour;
+    const {price, reviews, title} = tour;
     const navigate = useNavigate()
 
-    const [credentials, setCredentials] = useState({
-        userId:'01',
-        userEmail:'example@gmail.com',
-        fullName:'',
+    const {user} = useContext(AuthContext)
+
+    const [booking, setBooking] = useState({
+        userId: user && user._id,
+        userEmail: user && user.email,
+        tourName : title,
+        fullName: "",
         phone:'',
         guestSize:1,
         bookAt:''
@@ -19,18 +24,48 @@ const Booking = ({ tour,avgRating }) => {
 
     
     const handleChange = e => {
-        setCredentials(prev =>({...prev, [e.target.id]:e.target.value}))
+        setBooking(prev =>({...prev, [e.target.id]:e.target.value}))
     };
 
     const serviceFee = 10
-    const totalAmount = Number(price)*Number(credentials.guestSize) + Number(serviceFee)
+    const totalAmount = Number(price)*Number(booking.guestSize) + Number(serviceFee)
 
-    const handleClick = e => {
-        e.preventDefault()
-
-        navigate("/thank-you");
-    }
-
+    const handleClick = async (e) => {
+        e.preventDefault();
+    
+        console.log(booking);
+    
+        try {
+            if (!user || user === undefined || user === null) {
+                return alert("Please sign in");
+            }
+    
+            const res = await fetch(`${BASE_URL}/booking`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                body: JSON.stringify(booking)
+            });
+    
+            const result = await res.json();
+    
+            console.log(res);  // Log the full response object
+            console.log(result);  // Log the parsed response body
+    
+            if (!res.ok) {
+                return alert(result.message || 'An error occurred');
+            }
+    
+            navigate("/thank-you");
+        } catch (err) {
+            console.error(err);  // Log the error to the console
+            alert(err.message);
+        }
+    };
+    
+    
     return <div className="booking">
         <div className="booking__top d-flex align-items-center justify-content-between">
             <h3>${price} <span>/per person</span></h3>

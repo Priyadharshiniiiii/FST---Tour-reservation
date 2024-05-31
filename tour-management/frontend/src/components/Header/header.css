@@ -6,8 +6,11 @@
     line-height: 80px;
 }
 
-.logo img{
-    width: 30%;
+.logo h2{
+    color: rgb(255, 0, 179);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 1000;
+    font-size: 40px;
 }
 
 .menu{
@@ -16,7 +19,7 @@
 
 .nav__item a{
     text-decoration: none;
-    color: var( --heading-color );
+    color: rgb(255, 0, 179);
     font-weight: 500;
     font-size: 1.1rem;
 }
@@ -26,12 +29,12 @@
 }
 
 .nav__item a.active__link{
-    color: var( --secondary-color );
+    color: rgb(255, 0, 179);
 }
 
 .mobile__menu{
     font-size: 1.3rem;
-    color: var( --heading-color );
+    color: rgb(255, 0, 179);
     display: none;
 }
 
@@ -46,3 +49,4 @@
     box-shadow: 3px 3px 8px -3px #ddd;
     z-index: 999;
 }
+
