@@ -10,12 +10,16 @@
 
 .login__form{
     padding: 50px;
-    background: rgb(255, 0, 179);
+    background: rgb(163, 34, 124);
     position: relative;
 }
 
+.login__form h6{
+    background-color: rgb(163, 34, 124);
+}
+
 .login__container{
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    box-shadow: rgb(52, 32, 48) 0px 48px 100px 0px;
     margin-top: 100px;
 }
 
@@ -33,7 +37,7 @@
 }
 
 .login__form h2{
-    color: #fff;
+    color: #ffffff;
     text-align: center;
     margin-bottom: 2rem;
 }

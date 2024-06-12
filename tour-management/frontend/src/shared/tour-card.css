@@ -5,7 +5,7 @@
 
 .card{
     border: none !important;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+    box-shadow: rgba(255, 0, 234, 0.283) 0px 18px 50px -10px;
 }
 
 .tour__img{
@@ -86,4 +86,10 @@
 
 .booking__btn a:hover{
     color: #fff;
+}
+
+.booking__btn .btn-text {
+    background: var(--secondary-color); /* Change this to your desired color */
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
 }

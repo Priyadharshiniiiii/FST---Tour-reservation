@@ -2,15 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --primary-color: rgb(255, 0, 179);
+  --primary-color: rgb(166, 107, 153);
   --secondary-color: rgb(240, 83, 193);
-  --heading-color: #0b2727;
-  --text-color: #6e7074;
+  --heading-color: #ffffff;
+  --text-color: #abb4c7;
   --font-name: "Montserrat", sans-serif;
   --subtitle-font-name: "Island Moments", cursive;
 }
 
 * {
+  background-color: #000000;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -46,19 +47,27 @@ ul {
   border: none !important;
   border-radius: 50px !important;
   padding: 0.4rem 1.5rem !important;
+  position: relative;
 }
 
 .primary__btn a {
   font-size: 1.1rem;
   text-decoration: none;
   color: #fff;
+  position: relative;
+  z-index: 1;
 }
 .primary__btn a:hover {
-  color: inherit;
+  color: #858585;
+}
+.primary__btn .btn-text {
+  background: var(--secondary-color); /* Change this to your desired color */
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
 }
 .secondary__btn {
   background: transparent !important;
-  color: #0b2727 !important;
+  color: #ffffff !important;
   border: none !important;
   font-weight: 500 !important;
 }
@@ -70,7 +79,7 @@ ul {
 }
 
 .secondary__btn a:hover {
-  color: inherit;
+  color: #858585;
 }
 
 .section__subtitle {
