@@ -55,7 +55,7 @@ const Header = () => {
             <Row>
                 <div className="nav__wrapper d-flex align-items-center justify-content-between">
                     <div className="logo">
-                        {/* <img src={logo} alt="" /> */}
+                    {/* <img src="https://wallpaperaccess.com/full/136008.jpg" alt="Logo" /> */}
                         <h2>ExploreHub</h2>
                     </div>
 
