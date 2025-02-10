@@ -1,2 +1,10 @@
-/node_modules
-/env
+# Ignore node_modules folder
+node_modules/
+
+# Ignore environment files
+.env
+
+# Ignore build and dependencies
+dist/
+coverage/
+.DS_Store
